@@ -8,10 +8,14 @@ class App extends Component {
   }
 
   render() {
-    // function dragDrop() {
-    //   let dragEl = document.querySelector('.drag');
-    //   dragEl.draggable = true;
-    // }
+    const dragDrop = () => {
+const card = document.querySelector('.js-card');
+const cells = document.querySelectorAll('.js-cell');
+const dragStart = function () {
+  console.log('dragStart')
+}
+card.addEventListener('dragstart', dragStart);
+    };
     // dragDrop();
     return (
         <div className="App">

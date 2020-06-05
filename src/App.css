@@ -61,6 +61,12 @@
   font-weight: 600;
 
 }
+.hide {
+  display: none;
+}
+.hover {
+  background-color: lightcyan;
+}
 /*.drag {*/
 /*  background-color: dodgerblue;*/
 /*  width: 30%;*/
