@@ -22,7 +22,7 @@ class App extends Component {
           <li className='list_caption'>QA</li>
           <li className='list_caption'>Production</li>
             <li className='list_cell js_cell'>
-              <div className='list_card js-card'>
+              <div className='list_card js-card' draggable='true'>
                 <div className='list_card-header'>Task title</div>
                 <div className="list_card-info">Task description</div>
               </div>
