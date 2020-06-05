@@ -1,20 +1,32 @@
+*, *::before, * ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
   color: brown;
   height: 100vh;
-  padding: 10px;
-  font-size: 2em;
-  background-color: lightgray;
-  padding-top: 2em;
+  font-size: 1.5em;
 }
-
-
-.drag {
-  background-color: dodgerblue;
-  width: 30%;
-  margin: 2em;
-  height: 3em;
-  padding: 1em;
-  text-align: left;
-  color: lightcyan;
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
 }
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2em 0;
+}
+/*.drag {*/
+/*  background-color: dodgerblue;*/
+/*  width: 30%;*/
+/*  margin: 2em;*/
+/*  height: 3em;*/
+/*  padding: 1em;*/
+/*  text-align: left;*/
+/*  color: lightcyan;*/
+/*}*/
