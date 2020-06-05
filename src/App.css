@@ -21,6 +21,13 @@
   justify-content: space-between;
   margin: 2em 0;
 }
+.list_caption {
+  width: calc(25% - 3em);
+  margin: 0 1.5em;
+  list-style-type: none;
+  font-weight: bold;
+  color: dodgerblue;
+}
 /*.drag {*/
 /*  background-color: dodgerblue;*/
 /*  width: 30%;*/
