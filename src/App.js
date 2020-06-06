@@ -11,7 +11,7 @@ componentDidMount() {
         const card = document.querySelector('.js-card');
         const cells = document.querySelectorAll('.js_cell');
         const dragStart = function () {
-            alert('dragStart');
+            console.log('dragStart');
         };
         card.addEventListener('dragstart', dragStart);
     };
