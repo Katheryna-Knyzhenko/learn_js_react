@@ -6,17 +6,20 @@ class App extends Component {
     super();
     this.state = {}
   }
-
-  render() {
+componentDidMount() {
     const dragDrop = () => {
-const card = document.querySelector('.js-card');
-const cells = document.querySelectorAll('.js-cell');
-const dragStart = function () {
-  console.log('dragStart')
-}
-card.addEventListener('dragstart', dragStart);
+        const card = document.querySelector('.js-card');
+        const cells = document.querySelectorAll('.js_cell');
+        const dragStart = function () {
+            alert('dragStart');
+        };
+        card.addEventListener('dragstart', dragStart);
     };
-    // dragDrop();
+    dragDrop();
+}
+
+    render() {
+
     return (
         <div className="App">
           <div className='wrapper'>
