@@ -65,6 +65,8 @@ componentDidMount() {
             <li className='list_cell js_cell'></li>
           </ul>
         </div>
+            <hr></hr>
+            <div className='square' draggable='true'>Move me NOT into these 4 cells!</div>
         </div>
     );
   }

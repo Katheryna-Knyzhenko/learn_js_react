@@ -67,12 +67,19 @@
 .hover {
   background-color: lightcyan;
 }
-/*.drag {*/
-/*  background-color: dodgerblue;*/
-/*  width: 30%;*/
-/*  margin: 2em;*/
-/*  height: 3em;*/
-/*  padding: 1em;*/
-/*  text-align: left;*/
-/*  color: lightcyan;*/
-/*}*/
+.square {
+    background-color: lightblue;
+    width: 80px;
+    height: 100px;
+    margin: 0 auto;
+    box-shadow: 0 0 7px 5px rgba(0,0,0,0.2);
+    font-size: 16px;
+    text-align: center;
+    color: darkslategray;
+}
+hr {
+    margin-bottom: 2em;
+    background-color: grey;
+    color: red;
+    height: 3px;
+}
