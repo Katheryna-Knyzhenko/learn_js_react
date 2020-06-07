@@ -42,6 +42,24 @@ componentDidMount() {
 
     };
     dragDrop();
+    (function dragSmallEl () {
+        let coordX;
+        let coordY;
+        const dragEl = document.querySelector('.square');
+        dragEl.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/html', 'dragstart');
+            coordX = e.offsetX;
+            coordY = e.offsetY;
+            console.log('start');
+        });
+        dragEl.addEventListener('dragend', (e) => {
+            dragEl.style.position = 'absolute';
+            dragEl.style.top = (e.pageY - coordY) + 'px';
+            dragEl.style.left = (e.pageX - coordX) + "px";
+        })
+
+
+    } ())
 }
 
     render() {
