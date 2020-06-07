@@ -8,7 +8,7 @@
   width: 100%;
   min-height: 100vh;
   color: brown;
-  height: 100vh;
+  min-height: 100vh;
   font-size: 1.5em;
 }
 .wrapper {
@@ -82,4 +82,11 @@ hr {
     background-color: grey;
     color: red;
     height: 3px;
+}
+.drop_zone {
+    border: dashed 2px lightblue;
+    background-color: whitesmoke;
+    width: 50vw;
+    height: 300px;
+    margin: 25px;
 }

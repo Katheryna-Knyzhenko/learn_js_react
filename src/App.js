@@ -46,18 +46,30 @@ componentDidMount() {
         let coordX;
         let coordY;
         const dragEl = document.querySelector('.square');
+        const dropZone = document.querySelector('.drop_zone');
         dragEl.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('text/html', 'dragstart');
             coordX = e.offsetX;
             coordY = e.offsetY;
             console.log('start');
         });
-        dragEl.addEventListener('dragend', (e) => {
+        // dragEl.addEventListener('dragend', (e) => {
+        //     dragEl.style.position = 'absolute';
+        //     dragEl.style.top = (e.pageY - coordY) + 'px';
+        //     dragEl.style.left = (e.pageX - coordX) + "px";
+        // });
+        dropZone.addEventListener('dragenter', (e) => {
+        });
+        dropZone.addEventListener('dragleave', (e) => {
+        });
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+        dropZone.addEventListener('drop', (e) => {
             dragEl.style.position = 'absolute';
-            dragEl.style.top = (e.pageY - coordY) + 'px';
-            dragEl.style.left = (e.pageX - coordX) + "px";
+              dragEl.style.top = (e.pageY - coordY) + 'px';
+               dragEl.style.left = (e.pageX - coordX) + "px";
         })
-
 
     } ())
 }
@@ -85,6 +97,7 @@ componentDidMount() {
         </div>
             <hr></hr>
             <div className='square' draggable='true'>Move me NOT into these 4 cells!</div>
+            <div className="drop_zone"></div>
         </div>
     );
   }
