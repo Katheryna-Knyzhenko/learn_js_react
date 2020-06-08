@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import $ from 'jquery';
 
 class App extends Component {
   constructor() {
@@ -75,7 +76,14 @@ componentDidMount() {
 }
 
     render() {
-
+      var a = 5;
+$.ajax('https://repetitora.net/api/JS/Images', {
+    success: function (data) {
+        console.log(data)
+    }
+});
+a = 8;
+console.log(a);
     return (
         <div className="App">
           <div className='wrapper'>
