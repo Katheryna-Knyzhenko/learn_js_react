@@ -52,7 +52,7 @@ componentDidMount() {
             e.dataTransfer.setData('text/html', 'dragstart');
             coordX = e.offsetX;
             coordY = e.offsetY;
-            console.log('start');
+            // console.log('start');
         });
         // dragEl.addEventListener('dragend', (e) => {
         //     dragEl.style.position = 'absolute';
@@ -79,7 +79,11 @@ componentDidMount() {
       var a = 5;
 $.ajax('https://repetitora.net/api/JS/Images', {
     success: function (data) {
-        console.log(data)
+        data.forEach(el => {
+            const img = document.createElement('img');
+            img.src = el.thumbnail;
+            document.querySelector("body").appendChild(img);
+        })
     }
 });
 a = 8;
