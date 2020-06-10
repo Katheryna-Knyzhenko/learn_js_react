@@ -89,4 +89,16 @@ hr {
     width: 50vw;
     height: 300px;
     margin: 25px;
+    float: left;
+}
+button {
+    margin: 2em;
+    background-color: dodgerblue;
+    color: oldlace;
+    border: lightblue 2px solid;
+    padding: 0.3em;
+    float: right;
+}
+#result {
+    float: right;
 }
