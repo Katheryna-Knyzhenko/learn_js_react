@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
 import $ from 'jquery';
+import {getImages} from "./requests";
+
+
+
 
 class App extends Component {
   constructor() {
@@ -19,11 +23,11 @@ componentDidMount() {
                     document.querySelector("#result").appendChild(img);
                 })
     }
-    function getImages (page, successCallback) {
-        $.ajax(`https://repetitora.net/api/JS/Images?page=${page}&count=1`, {
-            success: successCallback
-        });
-    }
+    // function getImages (page, successCallback) {
+    //     $.ajax(`https://repetitora.net/api/JS/Images?page=${page}&count=1`, {
+    //         success: successCallback
+    //     });
+    // }
     const dragDrop = () => {
         const card = document.querySelector('.js-card');
         const cells = document.querySelectorAll('.js_cell');
