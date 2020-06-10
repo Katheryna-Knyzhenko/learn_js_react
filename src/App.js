@@ -76,7 +76,14 @@ componentDidMount() {
 }
 
     render() {
-      var a = 5;
+      const resultBlock = document.querySelector('#result');
+        const  clickMeButton = document.querySelector('#clickMe');
+        clickMeButton.addEventListener('click', makeRequest);
+        function makeRequest () {
+            resultBlock.innerHTML = 'result';
+        }
+
+        var a = 5;
 $.ajax('https://repetitora.net/api/JS/Images?page=2&count=4', {
     success: function (data) {
         data.forEach(el => {
