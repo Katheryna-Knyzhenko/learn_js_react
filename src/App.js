@@ -136,7 +136,7 @@ componentDidMount() {
             <button id = 'clickMe'>click me</button>
             </div>
             <div>
-             <input type = 'number'  id = 'page-number'></input>
+             <input type = 'number'   id = 'page-number'></input>
             </div>
             <div id='result'></div>
         </div>
