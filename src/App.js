@@ -8,6 +8,21 @@ class App extends Component {
     this.state = {}
   }
 componentDidMount() {
+    const resultBlock = document.querySelector('#result');
+    const  clickMeButton = document.querySelector('#clickMe');
+    const  pageNumber = document.querySelector('#page-number');
+    clickMeButton.addEventListener('click', makeRequest);
+    function makeRequest () {
+        $.ajax(`https://repetitora.net/api/JS/Images?page=${pageNumber.value}&count=1`, {
+            success: function (data) {
+                data.forEach(el => {
+                    const img = document.createElement('img');
+                    img.src = el.thumbnail;
+                    document.querySelector("#result").appendChild(img);
+                })
+            }
+        });
+    }
     const dragDrop = () => {
         const card = document.querySelector('.js-card');
         const cells = document.querySelectorAll('.js_cell');
@@ -76,25 +91,20 @@ componentDidMount() {
 }
 
     render() {
-      const resultBlock = document.querySelector('#result');
-        const  clickMeButton = document.querySelector('#clickMe');
-        clickMeButton.addEventListener('click', makeRequest);
-        function makeRequest () {
-            resultBlock.innerHTML = 'result';
-        }
 
-        var a = 5;
-$.ajax('https://repetitora.net/api/JS/Images?page=2&count=4', {
-    success: function (data) {
-        data.forEach(el => {
-            const img = document.createElement('img');
-            img.src = el.thumbnail;
-            document.querySelector("#result").appendChild(img);
-        })
-    }
-});
-a = 8;
-console.log(a);
+
+
+
+// $.ajax('https://repetitora.net/api/JS/Images?page=2&count=4', {
+//     success: function (data) {
+//         data.forEach(el => {
+//             const img = document.createElement('img');
+//             img.src = el.thumbnail;
+//             document.querySelector("#result").appendChild(img);
+//         })
+//     }
+// });
+
     return (
         <div className="App">
           <div className='wrapper'>
@@ -119,6 +129,9 @@ console.log(a);
             <div className="drop_zone"></div>
             <div>
             <button id = 'clickMe'>click me</button>
+            </div>
+            <div>
+             <input type = 'number'  id = 'page-number'></input>
             </div>
             <div id='result'></div>
         </div>

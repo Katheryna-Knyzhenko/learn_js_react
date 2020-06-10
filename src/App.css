@@ -102,3 +102,9 @@ button {
 #result {
     float: right;
 }
+#page-number {
+    float: right;
+    margin: 2em;
+    width: 60px;
+    height: 20px;
+}
