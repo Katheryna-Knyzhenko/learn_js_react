@@ -27,10 +27,14 @@ componentDidMount() {
     const resultBlock = document.querySelector('#result');
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
-   if (this.state.value !== null) {
+   if (!this.state.value) {
        clickMeButton.addEventListener('click', () => {const promise = newGetImages(pageNumber.value);
            promise.then(onDataRecieved);
        });
+
+   }
+   else if (this.state.value) {
+       clickMeButton.addEventListener('click', () => {alert('error!')})
    }
     function onDataRecieved (data) {
         data.forEach(el => {
