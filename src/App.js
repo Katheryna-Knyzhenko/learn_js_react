@@ -11,6 +11,7 @@ class App extends Component {
     super();
     this.state = {value: ''};
     this.handleChange = this.handleChange.bind(this);
+    this.submitButton = this.submitButton.bind(this);
   }
   handleChange (event) {
       this.setState({value: event.target.value});
@@ -18,13 +19,19 @@ class App extends Component {
           this.setState({value: ''});
       }
   }
+  submitButton (event) {
+      event.preventDefault();
+
+  }
 componentDidMount() {
     const resultBlock = document.querySelector('#result');
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
-    clickMeButton.addEventListener('click', () => {const promise = newGetImages(pageNumber.value);
-    promise.then(onDataRecieved);
-    });
+   if (this.state.value !== null) {
+       clickMeButton.addEventListener('click', () => {const promise = newGetImages(pageNumber.value);
+           promise.then(onDataRecieved);
+       });
+   }
     function onDataRecieved (data) {
         data.forEach(el => {
                     const img = document.createElement('img');
@@ -130,7 +137,7 @@ componentDidMount() {
             <div className='square' draggable='true'>Move me NOT into these 4 cells!</div>
             <div className="drop_zone"></div>
             <div>
-            <button id = 'clickMe'>click me</button>
+            <button type="submit" id = 'clickMe' onSubmit={this.submitButton}>click me</button>
             </div>
             <div>
              <input type = 'number'  value={this.state.value} id = 'page-number' onChange = {this.handleChange}></input>
