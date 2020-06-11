@@ -9,7 +9,14 @@ import {newGetImages} from "./requests";
 class App extends Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {value: ''};
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange (event) {
+      this.setState({value: event.target.value});
+      if (event.target.value <= 0) {
+          this.setState({value: ''});
+      }
   }
 componentDidMount() {
     const resultBlock = document.querySelector('#result');
@@ -126,7 +133,7 @@ componentDidMount() {
             <button id = 'clickMe'>click me</button>
             </div>
             <div>
-             <input type = 'number'   id = 'page-number'></input>
+             <input type = 'number'  value={this.state.value} id = 'page-number' onChange = {this.handleChange}></input>
             </div>
             <div id='result'></div>
         </div>
