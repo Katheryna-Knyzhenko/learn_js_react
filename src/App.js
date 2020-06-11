@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import $ from 'jquery';
-import {getImages} from "./requests";
+import {newGetImages} from "./requests";
 
 
 
@@ -15,7 +15,7 @@ componentDidMount() {
     const resultBlock = document.querySelector('#result');
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
-    clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
+    clickMeButton.addEventListener('click', () => {const promise = newGetImages(pageNumber.value);
     promise.then(onDataRecieved);
     });
     function onDataRecieved (data) {
