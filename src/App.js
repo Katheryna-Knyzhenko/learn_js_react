@@ -9,14 +9,15 @@ import {newGetImages} from "./requests";
 class App extends Component {
   constructor() {
     super();
-    this.state = {value: ''};
+    this.state = {value: '',
+    isDisabled: true};
     this.handleChange = this.handleChange.bind(this);
     this.submitButton = this.submitButton.bind(this);
   }
   handleChange (event) {
-      this.setState({value: event.target.value});
+      this.setState({value: event.target.value, isDisabled: false});
       if (event.target.value <= 0) {
-          this.setState({value: ''});
+          this.setState({value: '', isDisabled: true});
       }
   }
   submitButton (event) {
@@ -141,7 +142,7 @@ componentDidMount() {
             <div className='square' draggable='true'>Move me NOT into these 4 cells!</div>
             <div className="drop_zone"></div>
             <div>
-            <button type="submit" id = 'clickMe' onSubmit={this.submitButton}>click me</button>
+            <button type="submit" id = 'clickMe' onSubmit={this.submitButton} disabled={this.state.isDisabled}>click me</button>
             </div>
             <div>
              <input type = 'number'  value={this.state.value} id = 'page-number' onChange = {this.handleChange}></input>
