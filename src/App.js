@@ -15,7 +15,9 @@ componentDidMount() {
     const resultBlock = document.querySelector('#result');
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
-    clickMeButton.addEventListener('click', () => {getImages(pageNumber.value, onDataRecieved)});
+    clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
+    promise.then(onDataRecieved);
+    });
     function onDataRecieved (data) {
         data.forEach(el => {
                     const img = document.createElement('img');
@@ -23,11 +25,7 @@ componentDidMount() {
                     document.querySelector("#result").appendChild(img);
                 })
     }
-    // function getImages (page, successCallback) {
-    //     $.ajax(`https://repetitora.net/api/JS/Images?page=${page}&count=1`, {
-    //         success: successCallback
-    //     });
-    // }
+
     const dragDrop = () => {
         const card = document.querySelector('.js-card');
         const cells = document.querySelectorAll('.js_cell');
@@ -100,15 +98,7 @@ componentDidMount() {
 
 
 
-// $.ajax('https://repetitora.net/api/JS/Images?page=2&count=4', {
-//     success: function (data) {
-//         data.forEach(el => {
-//             const img = document.createElement('img');
-//             img.src = el.thumbnail;
-//             document.querySelector("#result").appendChild(img);
-//         })
-//     }
-// });
+
 
     return (
         <div className="App">
