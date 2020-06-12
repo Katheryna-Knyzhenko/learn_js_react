@@ -3,6 +3,7 @@ import './App.css';
 import $ from 'jquery';
 import {getImages} from "./requests";
 import {getTasks} from "./requests";
+import {createTasks} from "./requests";
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ componentDidMount() {
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
+    createTasks('FirstTask').then((data) => {console.log(data)});
    if (!this.state.value) {
        clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
            promise.then(onTasksRecieved);
