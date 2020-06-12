@@ -97,6 +97,8 @@ button {
     color: oldlace;
     border: lightblue 2px solid;
     padding: 0.3em;
+}
+#clickMe {
     float: right;
 }
 #result {

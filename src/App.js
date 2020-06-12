@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import $ from 'jquery';
-import {newGetImages} from "./requests";
-
-
+import {getImages} from "./requests";
+import {getTasks} from "./requests";
 
 
 class App extends Component {
@@ -28,21 +27,32 @@ componentDidMount() {
     const resultBlock = document.querySelector('#result');
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
+    const showTasksButton = document.querySelector('#get-tasks');
    if (!this.state.value) {
-       clickMeButton.addEventListener('click', () => {const promise = newGetImages(pageNumber.value);
-           promise.then(onDataRecieved);
+       clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
+           promise.then(onTasksRecieved);
        });
 
    }
    else if (this.state.value) {
        clickMeButton.addEventListener('click', () => {alert('error!')})
    }
-    function onDataRecieved (data) {
+    showTasksButton.addEventListener('click', () => {const promise = getTasks();
+        promise.then(onImagesRecieved);
+    });
+    function onTasksRecieved (data) {
         data.forEach(el => {
                     const img = document.createElement('img');
                     img.src = el.thumbnail;
                     document.querySelector("#result").appendChild(img);
                 })
+    }
+    function onImagesRecieved (tasks) {
+        tasks.forEach(el => {
+            const li = document.createElement('li');
+            li.innerHTML = el;
+            document.querySelector("#tasks-result").appendChild(li);
+        })
     }
 
     const dragDrop = () => {
@@ -145,9 +155,13 @@ componentDidMount() {
             <button type="submit" id = 'clickMe' onSubmit={this.submitButton} disabled={this.state.isDisabled}>click me</button>
             </div>
             <div>
-             <input type = 'number'  value={this.state.value} id = 'page-number' onChange = {this.handleChange}></input>
+             <input type = 'number'   value={this.state.value} id = 'page-number' onChange = {this.handleChange}></input>
             </div>
             <div id='result'></div>
+            <ul id='tasks-result'></ul>
+            <div>
+                <button id='get-tasks'>Show tasks</button>
+            </div>
         </div>
     );
   }
