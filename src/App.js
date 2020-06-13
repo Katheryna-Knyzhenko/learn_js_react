@@ -54,7 +54,9 @@ componentDidMount() {
         tasks.forEach(tasks => {
             const li = document.createElement('li');
             li.innerHTML = tasks.title;
-            document.querySelector("#tasks-result").appendChild(li);
+            const result = document.querySelector("#tasks-result");
+            result.innerHTML = '';
+            result.appendChild(li);
         })
     }
 
