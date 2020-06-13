@@ -29,10 +29,12 @@ export function createTasks (title) {
     return promise.then((response) => {
         return response.data});
 }
-export function updateTasks (title) {
+export function updateTasks (title, id, done) {
     const promise = axios.put(`https://repetitora.net/api/JS/Tasks`, {
         widgetId:7737,
-        title:title
+        title:title,
+        taskId: id,
+        done: done
     });
 
     return promise.then((response) => {

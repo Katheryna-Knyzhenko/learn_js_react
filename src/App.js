@@ -30,6 +30,7 @@ componentDidMount() {
     const showTasksButton = document.querySelector('#get-tasks');
     const deleteTaskButton = document.querySelector('#delete-task');
     createTasks('FirstTask');
+    updateTasks('super', '15da9242-ef97-4ab4-ae04-4051408584f8', true);
     // createTasks('SecondTask');
     // updateTasks('FirstTask').then((data) => {console.log(data)});
     // updateTasks('SecondTask').then((data) => {console.log(data)});
@@ -48,8 +49,9 @@ componentDidMount() {
    deleteTaskButton.addEventListener('click', () => {const promise = deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8'); promise.then(onDeleteTask)} );
 
    function onDeleteTask(tasks) {
-       alert('Мне надо удалить один из запросов в списке книпки ShowTasks')
-
+      // var resultZone = document.querySelector("#tasks-result").innerHTML;
+      //  resultZone.pop();
+       alert('Мне надо удалить один из запросов в списке книпки ShowTasks');
     }
 
    function onImagesRecieved (data) {
