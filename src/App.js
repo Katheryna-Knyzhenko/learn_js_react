@@ -37,7 +37,6 @@ componentDidMount() {
        clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
            promise.then(onImagesRecieved);
        });
-
    }
    else if (this.state.value) {
        clickMeButton.addEventListener('click', () => {alert('error!')})
