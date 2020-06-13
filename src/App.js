@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import $ from 'jquery';
-import {getImages} from "./requests";
+import {deleteTasks, getImages} from "./requests";
 import {getTasks} from "./requests";
 import {createTasks} from "./requests";
 
@@ -30,6 +30,8 @@ componentDidMount() {
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
     createTasks('FirstTask').then((data) => {console.log(data)});
+    createTasks('SecondTask').then((data) => {console.log(data)});
+    deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8');
    if (!this.state.value) {
        clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
            promise.then(onImagesRecieved);
@@ -56,6 +58,7 @@ componentDidMount() {
         tasks.forEach(tasks => {
             const li = document.createElement('li');
             li.innerHTML = tasks.title;
+            li.id = tasks.id;
             result.appendChild(li);
         })
     }

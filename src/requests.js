@@ -1,4 +1,4 @@
-import $ from "jquery";
+
 
 
 
@@ -16,15 +16,32 @@ export function getImages (page) {
     return promise.then((data) => {return data.data});
 }
 export function getTasks () {
-    const promise = axios.get(`https://repetitora.net/api/JS/Tasks?widgetId=7736&count=30`);
+    const promise = axios.get(`https://repetitora.net/api/JS/Tasks?widgetId=7737&count=7`);
 
     return promise.then((response) => {return response.data});
 }
 export function createTasks (title) {
     const promise = axios.post(`https://repetitora.net/api/JS/Tasks`, {
-        widgetId:7736,
+        widgetId:7737,
         title:title
     });
 
-    return promise.then((response) => {return response.data});
+    return promise.then((response) => {
+        return response.data});
+}
+export function updateTasks (title) {
+    const promise = axios.put(`https://repetitora.net/api/JS/Tasks`, {
+        widgetId:7737,
+        title:title
+    });
+
+    return promise.then((response) => {
+        return response.data});
+}
+export function deleteTasks (id) {
+    const promise = axios.delete(`https://repetitora.net/api/JS/Tasks?widgetId=7737&taskId=${id}`
+    );
+
+    return promise.then((response) => {
+        return response.data});
 }
