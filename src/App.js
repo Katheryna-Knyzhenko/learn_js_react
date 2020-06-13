@@ -28,11 +28,11 @@ componentDidMount() {
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
+    const deleteTaskButton = document.querySelector('#delete-task');
     createTasks('FirstTask');
     // createTasks('SecondTask');
     // updateTasks('FirstTask').then((data) => {console.log(data)});
     // updateTasks('SecondTask').then((data) => {console.log(data)});
-    deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8');
    if (!this.state.value) {
        clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
            promise.then(onImagesRecieved);
@@ -45,7 +45,14 @@ componentDidMount() {
         const promise = getTasks();
         promise.then(onTasksRecieved);
     });
-    function onImagesRecieved (data) {
+   deleteTaskButton.addEventListener('click', () => {const promise = deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8'); promise.then(onDeleteTask)} );
+
+   function onDeleteTask(tasks) {
+       alert('Мне надо удалить один из запросов в списке книпки ShowTasks')
+
+    }
+
+   function onImagesRecieved (data) {
         data.forEach(el => {
                     const img = document.createElement('img');
                     img.src = el.thumbnail;
@@ -168,7 +175,10 @@ componentDidMount() {
             <div id='result'></div>
             <ul id='tasks-result'></ul>
             <div>
-                <button id='get-tasks'>Show tasks</button>
+            <button id='get-tasks'>Show tasks</button>
+        </div>
+            <div>
+                <button id='delete-task'>Delete task</button>
             </div>
         </div>
     );
