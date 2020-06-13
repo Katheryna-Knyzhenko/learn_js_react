@@ -66,7 +66,7 @@ componentDidMount() {
         result.innerHTML = '';
         tasks.forEach(task => {
             const li = document.createElement('li');
-            li.innerHTML = task.title;
+            li.innerHTML = `${task.title}        ${task.id}`;
             li.id = task.id;
             result.appendChild(li);
         })
