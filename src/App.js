@@ -32,27 +32,28 @@ componentDidMount() {
     createTasks('FirstTask').then((data) => {console.log(data)});
    if (!this.state.value) {
        clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
-           promise.then(onTasksRecieved);
+           promise.then(onImagesRecieved);
        });
 
    }
    else if (this.state.value) {
        clickMeButton.addEventListener('click', () => {alert('error!')})
    }
-    showTasksButton.addEventListener('click', () => {const promise = getTasks();
-        promise.then(onImagesRecieved);
+    showTasksButton.addEventListener('click', () => {
+        const promise = getTasks();
+        promise.then(onTasksRecieved);
     });
-    function onTasksRecieved (data) {
+    function onImagesRecieved (data) {
         data.forEach(el => {
                     const img = document.createElement('img');
                     img.src = el.thumbnail;
                     document.querySelector("#result").appendChild(img);
                 })
     }
-    function onImagesRecieved (tasks) {
-        tasks.forEach(el => {
+    function onTasksRecieved (tasks) {
+        tasks.forEach(tasks => {
             const li = document.createElement('li');
-            li.innerHTML = el;
+            li.innerHTML = tasks.title;
             document.querySelector("#tasks-result").appendChild(li);
         })
     }
