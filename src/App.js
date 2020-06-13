@@ -46,7 +46,7 @@ componentDidMount() {
         const promise = getTasks();
         promise.then(onTasksRecieved);
     });
-   deleteTaskButton.addEventListener('click', () => {const promise = deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8'); promise.then(onDeleteTask)} );
+   deleteTaskButton.addEventListener('click', () => {const promise = deleteTasks('5eb018d6-5f75-4279-98ed-c365cc93f0dd')} );
 
    function onDeleteTask(tasks) {
       // var resultZone = document.querySelector("#tasks-result").innerHTML;
