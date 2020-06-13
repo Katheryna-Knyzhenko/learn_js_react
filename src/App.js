@@ -29,9 +29,9 @@ componentDidMount() {
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
     createTasks('FirstTask');
-    createTasks('SecondTask');
-    updateTasks('FirstTask').then((data) => {console.log(data)});
-    updateTasks('SecondTask').then((data) => {console.log(data)});
+    // createTasks('SecondTask');
+    // updateTasks('FirstTask').then((data) => {console.log(data)});
+    // updateTasks('SecondTask').then((data) => {console.log(data)});
     deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8');
    if (!this.state.value) {
        clickMeButton.addEventListener('click', () => {const promise = getImages(pageNumber.value);
@@ -57,7 +57,7 @@ componentDidMount() {
         result.innerHTML = '';
         tasks.forEach(task => {
             const li = document.createElement('li');
-            li.innerHTML = tasks.title;
+            li.innerHTML = task.title;
             li.id = task.id;
             result.appendChild(li);
         })
