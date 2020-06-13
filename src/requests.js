@@ -16,7 +16,7 @@ export function getImages (page) {
     return promise.then((data) => {return data.data});
 }
 export function getTasks () {
-    const promise = axios.get(`https://repetitora.net/api/JS/Tasks?widgetId=7737&count=7`);
+    const promise = axios.get(`https://repetitora.net/api/JS/Tasks?widgetId=7737&count=30`);
 
     return promise.then((response) => {return response.data});
 }

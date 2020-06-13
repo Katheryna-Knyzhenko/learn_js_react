@@ -28,8 +28,8 @@ componentDidMount() {
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
-    createTasks('FirstTask').then((data) => {console.log(data)});
-    createTasks('SecondTask').then((data) => {console.log(data)});
+    createTasks('FirstTask');
+    createTasks('SecondTask');
     updateTasks('FirstTask').then((data) => {console.log(data)});
     updateTasks('SecondTask').then((data) => {console.log(data)});
     deleteTasks('15da9242-ef97-4ab4-ae04-4051408584f8');
@@ -56,10 +56,10 @@ componentDidMount() {
     function onTasksRecieved (tasks) {
         const result = document.querySelector("#tasks-result");
         result.innerHTML = '';
-        tasks.forEach(tasks => {
+        tasks.forEach(task => {
             const li = document.createElement('li');
             li.innerHTML = tasks.title;
-            li.id = tasks.id;
+            li.id = task.id;
             result.appendChild(li);
         })
     }
