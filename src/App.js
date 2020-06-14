@@ -28,9 +28,8 @@ componentDidMount() {
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
-    const deleteTaskButton = document.querySelector('#delete-task');
     createTasks('FirstTask');
-    updateTasks('super', '15da9242-ef97-4ab4-ae04-4051408584f8', true);
+    // updateTasks('super', '15da9242-ef97-4ab4-ae04-4051408584f8', true);
     // createTasks('SecondTask');
     // updateTasks('FirstTask').then((data) => {console.log(data)});
     // updateTasks('SecondTask').then((data) => {console.log(data)});
@@ -46,7 +45,8 @@ componentDidMount() {
         const promise = getTasks();
         promise.then(onTasksRecieved);
     });
-   deleteTaskButton.addEventListener('click', () => {const promise = deleteTasks('5eb018d6-5f75-4279-98ed-c365cc93f0dd')} );
+
+
 
    function onDeleteTask(tasks) {
       // var resultZone = document.querySelector("#tasks-result").innerHTML;
@@ -69,6 +69,12 @@ componentDidMount() {
             li.innerHTML = `${task.title}        ${task.id}`;
             li.id = task.id;
             result.appendChild(li);
+            const button = document.createElement('button');
+            button.innerHTML = 'delete task';
+            button.id = 'delete-task';
+            button.addEventListener('click', () => { deleteTasks(task.id)} );
+            li.appendChild(button);
+
         })
     }
 
@@ -179,9 +185,6 @@ componentDidMount() {
             <div>
             <button id='get-tasks'>Show tasks</button>
         </div>
-            <div>
-                <button id='delete-task'>Delete task</button>
-            </div>
         </div>
     );
   }
