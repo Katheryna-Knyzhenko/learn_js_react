@@ -28,7 +28,7 @@ componentDidMount() {
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
-
+    // createTasks('FirstTasksh');
     // updateTasks('super', '15da9242-ef97-4ab4-ae04-4051408584f8', true);
     // createTasks('SecondTask');
     // updateTasks('FirstTask').then((data) => {console.log(data)});
@@ -63,9 +63,10 @@ componentDidMount() {
     }
 
     function onTasksRecieved (tasks) {
-        createTasks('FirstTask');
+
         const result = document.querySelector("#tasks-result");
         result.innerHTML = '';
+        createTasks('FirstTask2');
         tasks.forEach(task => {
             const li = document.createElement('li');
             li.innerHTML = `${task.title}        ${task.id}`;
