@@ -66,7 +66,7 @@ componentDidMount() {
 
         const result = document.querySelector("#tasks-result");
         result.innerHTML = '';
-        createTasks('FirstTask2');
+
         tasks.forEach(task => {
             const li = document.createElement('li');
             li.innerHTML = `${task.title}        ${task.id}`;
@@ -79,6 +79,7 @@ componentDidMount() {
             li.appendChild(buttonDelete);
 
         })
+        createTasks('FirstTask2');
     }
 
     const dragDrop = () => {
