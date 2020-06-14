@@ -28,7 +28,7 @@ componentDidMount() {
     const  clickMeButton = document.querySelector('#clickMe');
     const  pageNumber = document.querySelector('#page-number');
     const showTasksButton = document.querySelector('#get-tasks');
-    createTasks('FirstTask');
+
     // updateTasks('super', '15da9242-ef97-4ab4-ae04-4051408584f8', true);
     // createTasks('SecondTask');
     // updateTasks('FirstTask').then((data) => {console.log(data)});
@@ -61,7 +61,9 @@ componentDidMount() {
                     document.querySelector("#result").appendChild(img);
                 })
     }
+
     function onTasksRecieved (tasks) {
+        createTasks('FirstTask');
         const result = document.querySelector("#tasks-result");
         result.innerHTML = '';
         tasks.forEach(task => {
@@ -69,11 +71,11 @@ componentDidMount() {
             li.innerHTML = `${task.title}        ${task.id}`;
             li.id = task.id;
             result.appendChild(li);
-            const button = document.createElement('button');
-            button.innerHTML = 'delete task';
-            button.id = 'delete-task';
-            button.addEventListener('click', () => { deleteTasks(task.id)} );
-            li.appendChild(button);
+            const buttonDelete = document.createElement('button');
+            buttonDelete.innerHTML = 'delete task';
+            buttonDelete.id = 'delete-task';
+            buttonDelete.addEventListener('click', () => { deleteTasks(task.id)} );
+            li.appendChild(buttonDelete);
 
         })
     }
