@@ -75,10 +75,10 @@ componentDidMount() {
             const buttonDelete = document.createElement('button');
             buttonDelete.innerHTML = 'delete task';
             buttonDelete.id = 'delete-task';
-            buttonDelete.addEventListener('click', () => { deleteTasks(task.id)} );
+            buttonDelete.addEventListener('click', () => { deleteTasks(task.id); li.remove()} );
             li.appendChild(buttonDelete);
 
-        })
+        });
         createTasks('FirstTask2');
     }
 
